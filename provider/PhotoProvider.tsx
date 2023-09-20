@@ -1,13 +1,13 @@
 "use client";
 
-import type { Photo, PhotoProviderProps } from "@/model/Photo";
-import type { FC } from "react";
+import type { Photo } from "@/model/Photo";
+import type { FC, PropsWithChildren } from "react";
 import { useState } from "react";
 import photoContext from "@/context/photoContext";
 
 const { Provider } = photoContext;
 
-const PhotoProvider: FC<PhotoProviderProps> = ({ children }) => {
+const PhotoProvider: FC<PropsWithChildren> = ({ children }) => {
   const Photo = useState<Photo | null>(null);
 
   return <Provider value={Photo}>{children}</Provider>;

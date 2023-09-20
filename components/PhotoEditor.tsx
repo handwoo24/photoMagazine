@@ -1,9 +1,13 @@
 "use client";
 
-import { PhotoFile } from "@/model/Photo";
-import type { PhotoEditorProps } from "@/model/PhotoEditor";
+import type { FC, CSSProperties } from "react";
+import type { PhotoFile } from "@/model/Photo";
 import { ImageUploader } from "antd-mobile";
-import { useState, type FC } from "react";
+import { useState } from "react";
+
+interface PhotoEditorProps {
+  style?: CSSProperties;
+}
 
 const PhotoEditor: FC<PhotoEditorProps> = ({ style }) => {
   const [fileList, setFileList] = useState<PhotoFile[]>([]);
