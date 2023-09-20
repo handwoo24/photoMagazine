@@ -1,3 +1,9 @@
+import PhotoEditor from "@/components/PhotoEditor";
+
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <PhotoEditor />
+    </main>
+  );
 }
