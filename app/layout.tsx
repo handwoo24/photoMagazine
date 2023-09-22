@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PhotoProvider from "@/provider/PhotoProvider";
 import AntdProvider from "@/provider/AntdProvider";
+import PhotoFileProvider from "@/provider/PhotoFileProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AntdProvider>
-          <PhotoProvider>{children}</PhotoProvider>
+          <PhotoFileProvider>
+            <PhotoProvider>{children}</PhotoProvider>
+          </PhotoFileProvider>
         </AntdProvider>
       </body>
     </html>

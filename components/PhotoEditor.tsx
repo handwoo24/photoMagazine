@@ -1,23 +1,30 @@
 "use client";
 
 import type { FC, CSSProperties } from "react";
-import type { PhotoFile } from "@/model/Photo";
 import { ImageUploader } from "antd-mobile";
-import { useState } from "react";
+import { useContext } from "react";
+import photoFileContext from "@/context/photoFileContext";
 
 interface PhotoEditorProps {
   style?: CSSProperties;
 }
 
 const PhotoEditor: FC<PhotoEditorProps> = ({ style }) => {
-  const [fileList, setFileList] = useState<PhotoFile[]>([]);
+  const [photoFile, setPhotoFile] = useContext(photoFileContext);
 
   const upload = async (file: File) => ({
     url: URL.createObjectURL(file),
   });
 
   return (
-    <ImageUploader value={fileList} onChange={setFileList} upload={upload} />
+    <ImageUploader
+      maxCount={1}
+      multiple={false}
+      value={photoFile}
+      onChange={setPhotoFile}
+      upload={upload}
+      style={style}
+    />
   );
 };
 
